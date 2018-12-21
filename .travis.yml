@@ -2,9 +2,11 @@ language: python
 python:
 - '3.6'
 install:
-- pip install ansible==2.7.5 molecule apache-libcloud
+- pip install -r requirements.txt
 script:
-- molecule --debug test
+- molecule --debug create
+- molecule --debug converge
+- molecule --debug verify
 after_script:
 - molecule --debug destroy
 env:
@@ -15,3 +17,6 @@ env:
 before_install:
 - openssl aes-256-cbc -K $encrypted_16081ae4f68a_key -iv $encrypted_16081ae4f68a_iv
   -in secrets.tar.enc -out secrets.tar -d
+- tar xvf secrets.tar
+- mv google_compute_engine /home/travis/.ssh/
+- chmod 0600 /home/travis/.ssh/google_compute_engine
