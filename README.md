@@ -1,4 +1,4 @@
-Role Name
+Role Name [![Build Status](https://travis-ci.com/kornsn/ansible_db.svg?branch=master)](https://travis-ci.com/kornsn/ansible_db)
 =========
 
 Ansible db role for otus hw ansible-4
